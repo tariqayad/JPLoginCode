@@ -7,10 +7,10 @@
 
     <div class="col-md-4">
         <div id="container" class="form-group">
-            <label>Username</label><input class="form-control" type="text" />
-            <label>Password</label><input class="form-control" type="password" />
+            <label>Username</label><input class="form-control" type="text" value.bind="username" placeholder="Enter your username"/>
+            <label>Password</label><input class="form-control" type="password" value.bind="password" placeholder="Enter your password"/>
         </div>
-        <input type="button" value="Login" click.bind="doLogin()" />
+        <input type="button" value="Login" click.delegate="doLogin()" />
     </div>
     <div class="col-md-8"></div>
 </template>

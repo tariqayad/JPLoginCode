@@ -1,10 +1,16 @@
 System.config({
   baseURL: "/",
   defaultJSExtensions: true,
-  transpiler: "ts",
+  transpiler: "typescript",
   paths: {
     "github:*": "lib/github/*",
     "npm:*": "lib/npm/*"
+  },
+  packages: {
+      "src": {
+          "defaultJSExtensions": true,
+          "defaultExtension": "ts"
+      }
   },
 
   map: {

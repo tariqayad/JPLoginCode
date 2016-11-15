@@ -26,20 +26,13 @@
     font-family:arial,sans-serif; /*input has OS specific font-family*/
      cursor:pointer;
 }
-/*.isEnabled input, select {
-    pointer-events: all;
-}
-
-
-.isDisabled input, select {
-    pointer-events: none;
-    border: #f5f5d5;
-    background-color: beige;
-}*/
-
 
 .form-group{
     margin-top: 8px;
+}
+
+.form-group label{
+    margin-top: 10px;
 }
 
 /* Spinners */
