@@ -1,0 +1,16 @@
+{
+  "jspm": {
+    "directories": {
+      "packages": "wwwroot/lib"
+    },
+    "configFile": "wwwroot/config.js",
+    "dependencies": {
+      "aurelia-framework": "npm:aurelia-framework@^1.0.7",
+      "sha1": "npm:sha1@^1.1.1",
+      "ts": "github:frankwallis/plugin-typescript@^5.2.9"
+    },
+    "devDependencies": {
+      "typescript": "npm:typescript@^2.0.7"
+    }
+  }
+}

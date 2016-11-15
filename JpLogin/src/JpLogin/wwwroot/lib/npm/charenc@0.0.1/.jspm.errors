@@ -1,0 +1,8 @@
+MultipleErrors: C:/Users/Tariq/AppData/Local/.jspm/packages/npm/charenc@0.0.1/README.js:1:1: Unexpected token *
+C:/Users/Tariq/AppData/Local/.jspm/packages/npm/charenc@0.0.1/README.js:1:7: Unexpected token *
+C:/Users/Tariq/AppData/Local/.jspm/packages/npm/charenc@0.0.1/README.js:1:9: Semi-colon expected
+C:/Users/Tariq/AppData/Local/.jspm/packages/npm/charenc@0.0.1/README.js:1:18: Semi-colon expected
+C:/Users/Tariq/AppData/Local/.jspm/packages/npm/charenc@0.0.1/README.js:1:25: Semi-colon expected
+C:/Users/Tariq/AppData/Local/.jspm/packages/npm/charenc@0.0.1/README.js:1:35: Semi-colon expected
+C:/Users/Tariq/AppData/Local/.jspm/packages/npm/charenc@0.0.1/README.js:1:44: Semi-colon expected
+C:/Users/Tariq/AppData/Local/.jspm/packages/npm/charenc@0.0.1/README.js:2:1: Unexpected token End of File
