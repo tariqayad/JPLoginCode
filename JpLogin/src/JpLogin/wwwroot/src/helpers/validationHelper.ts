@@ -1,14 +1,19 @@
 ﻿export class ValidationHelper{
+    isValid: bloolean;
     passwordValidator: RegExp;
     validationMessage: string;
+    unValidationMessage: string;
 
     constructor() {
         this.passwordValidator = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/g);
     }
 
     isUserNameValid(username: string): boolean {
+        this.validationMessage = "";
         if (username != null) {
             if (username.length < 8) {
+                this.validationMessage = "Username does not meet security complexity requirements. userNames should be atleast 8 characters long";
+
                 return false;
             }
 
