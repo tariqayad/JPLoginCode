@@ -29,15 +29,27 @@ namespace JpLogin.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(string id)
+        public string Get(string id, bool returnP)
         {
-            return "value";
+            if (returnP)
+            {
+
+            }
+
+            // TODO: Refactor and add seperate action for this
+            return this.registrationService.DoesUserExist(id) == true? "t": "f";
         }
 
         // POST api/values
         [HttpPost]
         public void Post([FromBody]Registration value)
         {
+            this.registrationService.RegisterUser(value);
+        }
+
+        public bool Post([FromBody] string userId)
+        {
+            return this.registrationService.DoesUserExist(userId);
         }
 
         // PUT api/values/5

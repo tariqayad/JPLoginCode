@@ -15,6 +15,10 @@ export class Register {
         this.validationHelper = new ValidationHelper();
     }
 
+    public validateUserName(){
+        console.log("in validate user name");
+    }
+
     public doRegister() {
         console.log("in register");
     }
