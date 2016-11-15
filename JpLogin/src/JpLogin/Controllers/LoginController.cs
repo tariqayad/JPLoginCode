@@ -22,7 +22,14 @@ namespace JpLogin.Controllers
 
         // GET: api/values
         [HttpGet]
+        [Route("yo")]
         public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        [HttpGet]
+        public IEnumerable<string> Yo()
         {
             return new string[] { "value1", "value2" };
         }
@@ -47,9 +54,11 @@ namespace JpLogin.Controllers
             this.registrationService.RegisterUser(value);
         }
 
-        public bool Post([FromBody] string userId)
+        [HttpPost]
+        [Route("verify")]
+        public bool VerifyUserName([FromBody] Registration value)
         {
-            return this.registrationService.DoesUserExist(userId);
+            return this.registrationService.DoesUserExist(value.UserName);
         }
 
         // PUT api/values/5
@@ -58,6 +67,6 @@ namespace JpLogin.Controllers
         {
         }
 
-     
+
     }
 }
