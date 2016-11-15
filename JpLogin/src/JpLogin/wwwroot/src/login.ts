@@ -1,5 +1,6 @@
 ﻿import { ValidationHelper } from './helpers/validationhelper';
-import from 'hash';
+//import * as sha256 from 'fast-sha256';
+import sha256 from 'js-sha256';
 
 export class Login {
     username: string;
@@ -18,6 +19,6 @@ export class Login {
         // Hash the password
         let pwdHash: string;
 
-        console.log(hash.sha256("abc"));
+        console.log(sha256("abc"));
     }
 }

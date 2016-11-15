@@ -21,6 +21,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "fast-sha256": "npm:fast-sha256@1.0.0",
     "jquery": "npm:jquery@3.1.1",
+    "js-sha256": "npm:js-sha256@0.3.2",
     "sha1": "npm:sha1@1.1.1",
     "ts": "github:frankwallis/plugin-typescript@5.2.9",
     "typescript": "npm:typescript@2.1.1",
@@ -355,6 +356,9 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:js-sha256@0.3.2": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:miller-rabin@4.0.0": {
       "bn.js": "npm:bn.js@4.11.6",

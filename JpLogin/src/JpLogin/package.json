@@ -11,6 +11,7 @@
       "bootstrap": "github:twbs/bootstrap@^3.3.7",
       "fast-sha256": "npm:fast-sha256@^1.0.0",
       "jquery": "npm:jquery@^3.1.1",
+      "js-sha256": "npm:js-sha256@^0.3.2",
       "sha1": "npm:sha1@^1.1.1",
       "ts": "github:frankwallis/plugin-typescript@^5.2.9"
     },

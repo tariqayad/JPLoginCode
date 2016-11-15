@@ -34,19 +34,6 @@ namespace JpLogin.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(string id, bool returnP)
-        {
-            if (returnP)
-            {
-
-            }
-
-            // TODO: Refactor and add seperate action for this
-            return this.registrationService.DoesUserExist(id) == true? "t": "f";
-        }
-
         // POST api/values
         [HttpPost]
         public void Post([FromBody]Registration value)
