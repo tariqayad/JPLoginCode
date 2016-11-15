@@ -25,7 +25,7 @@
             return true;
         }
         else {
-            this.passwordValidationMessage = "Password does not meet security complexity requirements. Passwords should contain <Br> <ul><li>Atleast 8 characters</li><li>1 upplercase character</li><li></li></ul>";
+            this.validationMessage = "Password does not meet security complexity requirements. Passwords should contain atleast 8 characters, atleast 1 uppercase, 1 lowercase , 1 numeric and 1 special character.";
             return false;
         }
 

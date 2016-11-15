@@ -5,14 +5,17 @@
 
     <hr />
     <h2>Login</h2>
-    <p><label class="error">${validationHelper.validationMessage}</label></p>
-
-    <div class="col-md-4">
-        <div id="container" class="form-group">
-            <label>Username</label><input class="form-control" class.bind="validationHelper | validateUserName:username" type="text" value.bind="username" placeholder="Enter your username"/>
-            <label>Password</label><input class="form-control" class.bind="validationHelper | validatePassword:password" type="password" value.bind="password" placeholder="Enter your password"/>
-        </div>
-        <input type="button" value="Login" click.delegate="doLogin()" disabled.bind="validationHelper | validateForm:userName:password" />
+    <div class="row">
+        <p class="col-md-4"><label class="error">${validationHelper.validationMessage}</label></p><p class="col-md-8"></p>
     </div>
-    <div class="col-md-8"></div>
+    <div class="row">
+        <div class="col-md-4">
+            <div id="container" class="form-group">
+                <label>Username</label><input class="form-control" class.bind="validationHelper | validateUserName:username" type="text" value.bind="username" placeholder="Enter your username" />
+                <label>Password</label><input class="form-control" class.bind="validationHelper | validatePassword:password" type="password" value.bind="password" placeholder="Enter your password" />
+            </div>
+            <input type="button" value="Login" click.delegate="doLogin()" disabled.bind="validationHelper | validateForm:userName:password" />
+        </div>
+        <div class="col-md-8"></div>
+    </div>
 </template>
