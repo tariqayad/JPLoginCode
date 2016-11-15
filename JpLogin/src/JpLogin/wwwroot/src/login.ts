@@ -1,5 +1,4 @@
-﻿import { CryptoJS } from from 'cryptojs';
-import { js-sha256 } from 'js-sha256';
+﻿import from 'hash';
 
 export class Login {
     errorMessage: string;
@@ -17,6 +16,6 @@ export class Login {
         // Hash the password
         let pwdHash: string;
 
-        
+        console.log(hash.sha256("abc"));
     }
 }

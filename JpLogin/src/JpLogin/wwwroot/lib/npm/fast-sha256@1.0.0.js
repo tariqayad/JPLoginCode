@@ -1,0 +1,1 @@
+module.exports = require("npm:fast-sha256@1.0.0/sha256.js");
