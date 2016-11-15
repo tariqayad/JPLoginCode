@@ -469,5 +469,6 @@
   "npm:aurelia-route-recognizer@1.1.0": {
     "aurelia-path": "npm:aurelia-path@^1.0.0"
   },
-  "npm:fast-sha256@1.0.0": {}
+  "npm:fast-sha256@1.0.0": {},
+  "npm:aurelia-fetch-client@1.0.1": {}
 }

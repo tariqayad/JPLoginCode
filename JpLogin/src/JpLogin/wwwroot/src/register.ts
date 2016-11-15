@@ -1,4 +1,6 @@
 ﻿import { ValidationHelper } from './helpers/validationhelper';
+import { SettingsHelper } from './helpers/SettingsHelper';
+import { HttpClient } from 'aurelia-fetch-client';
 
 export class Register {
     username: string;
@@ -6,6 +8,7 @@ export class Register {
     confirmPassword: string;
     mobileNumber: string;
     validationHelper: ValidationHelper;
+    http: HttpClient;
 
     constructor() {
         this.username = "";
@@ -13,10 +16,19 @@ export class Register {
         this.confirmPassword = "";
         this.mobileNumber = "";
         this.validationHelper = new ValidationHelper();
+
+        this.http = new HttpClient();
+        this.http.configure(config => {
+            config.withBaseUrl(SettingsHelper.webUrl);
+        })
     }
 
     public validateUserName(){
         console.log("in validate user name");
+
+        this.http.fetch().then(response => {
+            console.log("resp recvd");
+        });
     }
 
     public doRegister() {
