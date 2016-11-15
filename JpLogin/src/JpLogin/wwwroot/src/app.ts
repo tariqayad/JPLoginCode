@@ -1,4 +1,8 @@
-﻿import { RouterConfiguration, Router } from 'aurelia-router';
+﻿/*******
+* Aurelia Bootstrapper Code
+*
+*/
+import { RouterConfiguration, Router } from 'aurelia-router';
 
 export class App {
 
@@ -16,7 +20,7 @@ export class App {
         config.title = "JPLogin";
         config.map(
             [
-                { route: ['', 'home'], name: 'home', moduleId: 'src/Login' },
+                { route: ['', 'home'], name: 'home', moduleId: 'src/Login', title:"Login" },
             ]
         );
     }
