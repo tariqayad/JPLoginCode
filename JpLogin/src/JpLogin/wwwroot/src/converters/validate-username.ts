@@ -1,8 +1,8 @@
 ﻿import { ValidationHelper } from "../helpers/validationHelper";
 
 export class ValidateUserNameValueConverter {
-    public toView(username: string) {
-        if (ValidationHelper.isUserNameValid(username)) {
+    public toView(validator: ValidationHelper, username: string) {
+        if (validator.isUserNameValid(username)) {
             return 'valid';
         }
 

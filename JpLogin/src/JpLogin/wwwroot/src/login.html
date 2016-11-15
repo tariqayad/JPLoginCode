@@ -1,17 +1,18 @@
 ﻿<template>
     <require from="src/converters/validate-password.ts"></require>
     <require from="src/converters/validate-username.ts"></require>
+    <require from="src/converters/validate-form.ts"></require>
 
     <hr />
     <h2>Login</h2>
-    <p><label class="error">${errorMessage}</label></p>
+    <p><label class="error">${validationHelper.passwordValidationMessage}</label></p>
 
     <div class="col-md-4">
         <div id="container" class="form-group">
-            <label>Username</label><input class="form-control" class.bind="username | validateUserName" type="text" value.bind="username" placeholder="Enter your username"/>
-            <label>Password</label><input class="form-control" class.bind="password | validatePassword" type="password" value.bind="password" placeholder="Enter your password"/>
+            <label>Username</label><input class="form-control" class.bind="validationHelper | validateUserName:userName" type="text" value.bind="username" placeholder="Enter your username"/>
+            <label>Password</label><input class="form-control" class.bind="validationHelper | validatePassword:password" type="password" value.bind="password" placeholder="Enter your password"/>
         </div>
-        <input type="button" value="Login" click.delegate="doLogin()" />
+        <input type="button" value="Login" click.delegate="doLogin()" disabled.bind="validationHelper | validateForm:userName:password" />
     </div>
     <div class="col-md-8"></div>
 </template>
