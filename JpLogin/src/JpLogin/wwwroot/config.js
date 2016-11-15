@@ -1,7 +1,7 @@
 System.config({
   baseURL: "/",
   defaultJSExtensions: true,
-  transpiler: "typescript",
+  transpiler: "ts",
   paths: {
     "github:*": "lib/github/*",
     "npm:*": "lib/npm/*"

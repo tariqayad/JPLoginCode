@@ -13,7 +13,7 @@ export class App {
 
         this.router = Router;
 
-        config.title = "aurelia";
+        config.title = "JPLogin";
         config.map(
             [
                 { route: ['', 'home'], name: 'home', moduleId: 'src/Login' },

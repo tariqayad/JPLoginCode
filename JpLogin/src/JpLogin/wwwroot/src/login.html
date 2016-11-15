@@ -1,10 +1,16 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿<template>
 
-</body>
-</html>
+    <!--<a route-href="route: tenants; params.bind: {id:5}">Go to Tenants</a>-->
+    <hr />
+    <h2>Login</h2>
+    <p><label class="error">${errorMessage}</label></p>
+
+    <div class="col-md-4">
+        <div id="container" class="form-group">
+            <label>Username</label><input class="form-control" type="text" />
+            <label>Password</label><input class="form-control" type="password" />
+        </div>
+        <input type="button" value="Login" click.bind="doLogin()" />
+    </div>
+    <div class="col-md-8"></div>
+</template>
