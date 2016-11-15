@@ -16,8 +16,7 @@ export class App {
         config.title = "aurelia";
         config.map(
             [
-                { route: ['', 'home'], name: 'home', moduleId: 'src/start' },
-                { route: 'tenants/:id', name: 'tenants', moduleId: 'src/tenants'}
+                { route: ['', 'home'], name: 'home', moduleId: 'src/Login' },
             ]
         );
     }

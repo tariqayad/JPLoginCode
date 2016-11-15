@@ -8,8 +8,7 @@ var App = (function () {
         this.router = aurelia_router_1.Router;
         config.title = "aurelia";
         config.map([
-            { route: ['', 'home'], name: 'home', moduleId: 'src/start' },
-            { route: 'tenants/:id', name: 'tenants', moduleId: 'src/tenants' }
+            { route: ['', 'home'], name: 'home', moduleId: 'src/Login' },
         ]);
     };
     return App;
