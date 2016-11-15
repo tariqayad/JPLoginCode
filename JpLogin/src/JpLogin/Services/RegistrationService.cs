@@ -6,7 +6,7 @@ using JpLogin.Models;
 
 namespace JpLogin.Services
 {
-    public class RegistrationService
+    public class RegistrationService: IRegistrationService
     {
         public void RegisterUser(Registration userRegisteration)
         {
