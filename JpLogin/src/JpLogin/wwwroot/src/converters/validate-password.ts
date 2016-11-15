@@ -1,10 +1,12 @@
-﻿import { ValidationHelper } from "../helpers/ValidationConverter";
+﻿import { ValidationHelper } from "../helpers/validationHelper";
 
 export class ValidatePasswordValueConverter {
     public toView(password: string) {
-        if (ValidationHelper.isUserNameValid(password)) {
+        if (ValidationHelper.isPasswordValid(password)) {
             return 'valid';
         }
+
+        if
 
         return 'invalid';
     }

@@ -17,15 +17,14 @@
     font-weight:100 !important;
 }
 
-.linkButton{
-    background:none!important;
-     border:none;
-     padding:0!important;
-
-    /*optional*/
-    font-family:arial,sans-serif; /*input has OS specific font-family*/
-     cursor:pointer;
+.valid{
+    border-color: green !important;
 }
+
+.invalid{
+    border-color: red !important;
+}
+
 
 .form-group{
     margin-top: 8px;

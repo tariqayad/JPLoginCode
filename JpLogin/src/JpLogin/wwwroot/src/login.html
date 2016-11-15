@@ -1,14 +1,15 @@
 ﻿<template>
+    <require from="src/converters/validate-password.ts"></require>
+    <require from="src/converters/validate-username.ts"></require>
 
-    <!--<a route-href="route: tenants; params.bind: {id:5}">Go to Tenants</a>-->
     <hr />
     <h2>Login</h2>
     <p><label class="error">${errorMessage}</label></p>
 
     <div class="col-md-4">
         <div id="container" class="form-group">
-            <label>Username</label><input class="form-control" type="text" value.bind="username" placeholder="Enter your username"/><i class="glyphicon glyphicon-ok"></i>
-            <label>Password</label><input class="form-control" type="password" value.bind="password" placeholder="Enter your password"/> <i class="glyphicon glyphicon-ok""></i>
+            <label>Username</label><input class="form-control" class.bind="username | validateUserName" type="text" value.bind="username" placeholder="Enter your username"/>
+            <label>Password</label><input class="form-control" class.bind="password | validatePassword" type="password" value.bind="password" placeholder="Enter your password"/>
         </div>
         <input type="button" value="Login" click.delegate="doLogin()" />
     </div>
