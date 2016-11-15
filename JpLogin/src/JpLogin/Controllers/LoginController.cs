@@ -58,7 +58,7 @@ namespace JpLogin.Controllers
         [Route("verify")]
         public bool VerifyUserName([FromBody] Registration value)
         {
-            return this.registrationService.DoesUserExist(value.UserName);
+            return this.registrationService.DoesUserExist(value);
         }
 
         // PUT api/values/5

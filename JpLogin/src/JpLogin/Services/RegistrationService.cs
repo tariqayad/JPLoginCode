@@ -13,8 +13,12 @@ namespace JpLogin.Services
 
         }
 
-        public bool DoesUserExist(string userName)
+        public bool DoesUserExist(Registration userRegistration)
         {
+            if (!string.IsNullOrEmpty(userRegistration.UserName))
+            {
+
+            }
             return false;
         }
 
