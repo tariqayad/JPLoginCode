@@ -9,6 +9,8 @@ System.config({
 
   map: {
     "aurelia-framework": "npm:aurelia-framework@1.0.7",
+    "bootstrap": "github:twbs/bootstrap@3.3.7",
+    "jquery": "npm:jquery@3.1.1",
     "sha1": "npm:sha1@1.1.1",
     "ts": "github:frankwallis/plugin-typescript@5.2.9",
     "typescript": "npm:typescript@2.1.1",
@@ -77,6 +79,9 @@ System.config({
     },
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
+    },
+    "github:twbs/bootstrap@3.3.7": {
+      "jquery": "npm:jquery@3.1.1"
     },
     "npm:asn1.js@4.9.0": {
       "bn.js": "npm:bn.js@4.11.6",

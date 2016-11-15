@@ -390,5 +390,9 @@
     "assert": "github:jspm/nodelibs-assert@^0.1.0"
   },
   "npm:crypt@0.0.1": {},
-  "npm:charenc@0.0.1": {}
+  "npm:charenc@0.0.1": {},
+  "github:twbs/bootstrap@3.3.7": {
+    "jquery": "jspm:jquery"
+  },
+  "npm:jquery@3.1.1": {}
 }
