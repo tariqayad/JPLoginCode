@@ -35,15 +35,19 @@ namespace JpLogin
         public void ConfigureServices(IServiceCollection services)
         {
             // Configure Settings
-            services.Configure<StorageSettings>(options => Configuration.GetSection(JpLogin.Common.Constants.StorageSettings).Bind(options));
+            //services.AddOptions();
+            //services.Configure<StorageSettings>(Configuration.GetSection("StorageSettings"));
+            //services.Configure<StorageSettings>(options => Configuration.GetSection(JpLogin.Common.Constants.StorageSettings).Bind(options));
+            
+            // Add dependancy injection
+            services.AddTransient<IRegistrationService, RegistrationService>();
+            //services.AddSingleton<IDataRepository, AzureTableStorageRepository>();
 
             // Setup WebApi
             var mvcCore = services.AddMvcCore();
             mvcCore.AddJsonFormatters(options => options.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
-            // Add dependancy injection
-            services.AddTransient<IRegistrationService, RegistrationService> ();
-            services.AddSingleton<IDataRepository, AzureTableStorageRepository>();
+    
         }
 
         /// <summary>

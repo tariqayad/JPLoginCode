@@ -20,13 +20,12 @@ namespace JpLogin.DataAccess
         /// <summary>
         /// Initializes a new instance of the <see cref="AzureTableStorageRepository"/> class.
         /// </summary>
-        public AzureTableStorageRepository(IOptions<StorageSettings> settings)
+        public AzureTableStorageRepository(IConfiguration settings)
         {
             var storageAccount = new CloudStorageAccount(
-                new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(settings.Value.StorageName, settings.Value.StorageKey), true);
+                new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(settings["StorageName"], settings["StorageKey"]), true);
 
             this.cloudTableClient = storageAccount.CreateCloudTableClient();
-
         }
 
         /// <summary>
