@@ -21,7 +21,7 @@ var Login = (function () {
         pwdHash = js_sha256_1.default(this.password);
         this.http.fetch('', {
             method: 'post',
-            body: json({
+            body: aurelia_fetch_client_1.json({
                 userName: this.username,
                 passwordHash: pwdHash
             })

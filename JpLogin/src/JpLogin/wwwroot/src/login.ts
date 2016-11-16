@@ -2,7 +2,7 @@
 //import * as sha256 from 'fast-sha256';
 import sha256 from 'js-sha256';
 import { SettingsHelper } from './helpers/SettingsHelper';
-import { HttpClient } from 'aurelia-fetch-client';
+import { HttpClient, json } from 'aurelia-fetch-client';
 
 
 export class Login {
