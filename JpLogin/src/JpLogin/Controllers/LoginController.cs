@@ -10,19 +10,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JpLogin.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]"), ]
     public class LoginController : Controller
     {
-        IRegistrationService registrationService;
+        private readonly IRegistrationService registrationService;
 
-        public LoginController()
-        {                
-        }
-
-
-        public LoginController(IRegistrationService registrationService)
+        public LoginController([FromServices] IRegistrationService regSvc)
         {
-            this.registrationService = registrationService;
+
         }
 
         [HttpGet]
@@ -31,40 +26,40 @@ namespace JpLogin.Controllers
             return "test";
         }
 
-        
-        //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody]Registration value)
-        //{
-        //    this.registrationService.RegisterUser(value);
-        //}
 
-        //[HttpPost]
-        //[Route("User")]
-        //public IActionResult VerifyUserName([FromBody] Registration value)
-        //{
-        //    if (this.registrationService.DoesUserExist(value))
-        //    {
-        //        return Ok(true);
-        //    }
-        //    else
-        //    {
-        //        return NoContent();
-        //    }            
-        //}
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]Registration value)
+        {
+            this.registrationService.RegisterUser(value);
+        }
 
-        //[HttpPost]
-        //[Route("Verify")]
-        //public async Task<IActionResult> VerifyCredentials([FromBody] Registration value)
-        //{
-        //    if ( await this.registrationService.IsRegistrationValid(value))
-        //    {
-        //        return Ok(true);
-        //    }
-        //    else
-        //    {
-        //        return NotFound("Invalid Credentials");
-        //    }
-        //}
+        [HttpPost]
+        [Route("User")]
+        public IActionResult VerifyUserName([FromBody] Registration value)
+        {
+            if (this.registrationService.DoesUserExist(value))
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+        [HttpPost]
+        [Route("Verify")]
+        public async Task<IActionResult> VerifyCredentials([FromBody] Registration value)
+        {
+            if (await this.registrationService.IsRegistrationValid(value))
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return NotFound("Invalid Credentials");
+            }
+        }
     }
 }

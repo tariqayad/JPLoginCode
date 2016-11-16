@@ -11,9 +11,9 @@ namespace JpLogin.Services
     {
         IDataRepository datarepository;
 
-        public RegistrationService(IDataRepository dataRepository)
+        public RegistrationService(IDataRepository rep)
         {
-            this.datarepository = dataRepository;
+            this.datarepository = rep;
         }
 
         public void RegisterUser(Registration userRegisteration)

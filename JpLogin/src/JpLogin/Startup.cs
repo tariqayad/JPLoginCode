@@ -22,8 +22,8 @@ namespace JpLogin
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-           
+                .AddJsonFile("appsettings.json");
+
             this.Configuration = builder.Build();
         }
         public IConfigurationRoot Configuration { get; }
@@ -35,19 +35,17 @@ namespace JpLogin
         public void ConfigureServices(IServiceCollection services)
         {
             // Configure Settings
-            //services.AddOptions();
-            //services.Configure<StorageSettings>(Configuration.GetSection("StorageSettings"));
-            //services.Configure<StorageSettings>(options => Configuration.GetSection(JpLogin.Common.Constants.StorageSettings).Bind(options));
-            
-            // Add dependancy injection
-            services.AddTransient<IRegistrationService, RegistrationService>();
-            //services.AddSingleton<IDataRepository, AzureTableStorageRepository>();
+            services.AddOptions();
+            services.Configure<StorageSettings>(Configuration.GetSection("Storage"));            
 
-            // Setup WebApi
             var mvcCore = services.AddMvcCore();
-            mvcCore.AddJsonFormatters(options => options.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
-    
+            // Add dependancy injection
+            services.AddTransient<IDataRepository, AzureTableStorageRepository>();
+            services.AddTransient<IRegistrationService, RegistrationService>();           
+
+            // Setup WebApi            
+            mvcCore.AddJsonFormatters(options => options.ContractResolver = new CamelCasePropertyNamesContractResolver());    
         }
 
         /// <summary>
