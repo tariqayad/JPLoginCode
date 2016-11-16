@@ -20,20 +20,7 @@ namespace JpLogin.Controllers
             this.registrationService = registrationService;
         }
 
-        // GET: api/values
-        [HttpGet]
-        [Route("yo")]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        [HttpGet]
-        public IEnumerable<string> Yo()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
+        
         // POST api/values
         [HttpPost]
         public void Post([FromBody]Registration value)
@@ -42,18 +29,31 @@ namespace JpLogin.Controllers
         }
 
         [HttpPost]
-        [Route("verify")]
-        public bool VerifyUserName([FromBody] Registration value)
+        [Route("User")]
+        public IActionResult VerifyUserName([FromBody] Registration value)
         {
-            return this.registrationService.DoesUserExist(value);
+            if (this.registrationService.DoesUserExist(value))
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return NoContent();
+            }            
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        [HttpPost]
+        [Route("Verify")]
+        public async Task<IActionResult> VerifyCredentials([FromBody] Registration value)
         {
+            if ( await this.registrationService.IsRegistrationValid(value))
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return NotFound("Invalid Credentials");
+            }
         }
-
-
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace JpLogin.Interfaces
 {
-    interface IDataRepository
+    public interface IDataRepository
     {
-        Registration GetRegistration(string username);
+        Task<Registration> GetRegistration(string username);
         void Register(Registration registration);
         bool DoesRegistrationExist(string username);
     }
