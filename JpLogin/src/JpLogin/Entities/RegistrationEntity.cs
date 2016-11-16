@@ -14,6 +14,11 @@ namespace JpLogin.Entities
     /// <seealso cref="Microsoft.WindowsAzure.Storage.Table.TableEntity" />
     public class RegistrationEntity: TableEntity
     {
+        public RegistrationEntity()
+        {
+
+        }
+
         public static RegistrationEntity FromModel(Registration model)
         {
             return new RegistrationEntity(model.UserName)

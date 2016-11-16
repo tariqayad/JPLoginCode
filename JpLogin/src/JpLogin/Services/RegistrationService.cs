@@ -18,7 +18,10 @@ namespace JpLogin.Services
 
         public void RegisterUser(Registration userRegisteration)
         {
-
+            if (userRegisteration != null)
+            {
+                this.datarepository.Register(userRegisteration);
+            }
         }
 
         public bool DoesUserExist(Registration userRegistration)

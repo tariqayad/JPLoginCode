@@ -17,7 +17,7 @@ namespace JpLogin.Controllers
 
         public LoginController([FromServices] IRegistrationService regSvc)
         {
-
+            this.registrationService = regSvc;
         }
 
         [HttpGet]
