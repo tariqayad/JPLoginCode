@@ -44,6 +44,11 @@ namespace JpLogin.Services
             {
                 var savedRegistration = await this.datarepository.GetRegistration(userRegistration.UserName);
 
+                if (savedRegistration == null)
+                {
+                    return false;
+                }
+
                 if (savedRegistration.PasswordHash == userRegistration.PasswordHash)
                 {
                     return true;                    

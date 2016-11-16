@@ -17,8 +17,15 @@ export class Login {
         this.validationHelper = new ValidationHelper();
         this.http = new HttpClient();
         this.http.configure(config => {
-            config.withBaseUrl(SettingsHelper.webUrl);
-        })
+            config.withBaseUrl(SettingsHelper.webUrl)
+                .withDefaults({
+                    credentials: 'same-origin',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'Fetch'
+                    }
+                });
+        });
     }
 
     public doLogin() {
@@ -29,7 +36,7 @@ export class Login {
 
         pwdHash = sha256(this.password);
 
-        this.http.fetch('',
+        this.http.fetch('Verify',
             {
                 method: 'post',
                 body: json({
@@ -37,8 +44,7 @@ export class Login {
                     passwordHash: pwdHash
                 })
             }
-        ).then(response => {
-            console.log("resp recvd");
-        });
+        ).then(response => response.json())
+            .then(data => console.log(data));
     }
 }

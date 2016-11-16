@@ -55,7 +55,7 @@ namespace JpLogin.DataAccess
 
                 var result = await table.ExecuteAsync(getRegistrationOperation);
 
-                if (result != null)
+                if (result.Result != null)
                 {
                     return ((RegistrationEntity)result.Result).ToModel();
                 }
