@@ -1,18 +1,31 @@
-﻿import { ValidationHelper } from './helpers/validationhelper';
-//import * as sha256 from 'fast-sha256';
+﻿import { inject } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
 import sha256 from 'js-sha256';
-import { SettingsHelper } from './helpers/SettingsHelper';
 import { HttpClient, json } from 'aurelia-fetch-client';
+import { ValidationHelper } from './helpers/validationhelper';
+import { SettingsHelper } from './helpers/SettingsHelper';
+import { State } from './helpers/State';
 
-
+@inject(State, Router)
 export class Login {
+    // Framework variables
+    theRouter: Router;
+    http: HttpClient;
+
+    // Login Variables
     username: string;
     password: string;
+
+    // Validation Variables
     validationHelper: ValidationHelper;
-    http: HttpClient;
     message: string;
 
-    constructor() {
+    // State
+    state: State;
+
+    constructor(state: State, router: Router) {
+        this.state = state;
+        this.theRouter = router;
         this.username = "";
         this.password = "";
         this.validationHelper = new ValidationHelper();
@@ -57,6 +70,8 @@ export class Login {
             .then(data => {
                 console.log(data)
                 this.message = "Login Succesful";
+                this.state.isLoggedIn = true;
+                this.theRouter.navigate("home");
             })
             .catch(exception => {
                 console.log(exception)

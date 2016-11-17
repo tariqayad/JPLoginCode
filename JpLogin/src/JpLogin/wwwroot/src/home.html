@@ -1,0 +1,8 @@
+﻿<template>
+    <h1 if.bind="state.isLoggedIn">
+        ${message}
+    </h1>
+    <h1 if.bind="!state.isLoggedIn">
+        You are not logged in
+    </h1>
+</template>

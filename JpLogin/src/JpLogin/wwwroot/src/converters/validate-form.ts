@@ -6,9 +6,9 @@ export class ValidateFormValueConverter {
             return true;
         }
         if (validator.isUserNameValid(username) && validator.isPasswordValid(password)  ) {
-            return true;
+            return false;
         }        
-        return false;
+        return true;
     }
 
 }
