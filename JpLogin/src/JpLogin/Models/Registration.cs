@@ -8,7 +8,13 @@ namespace JpLogin.Models
     public class Registration
     {
         public string UserName { get; set; }
+
         public string PasswordHash { get; set; }
-        public string MobileNumber { get; set; }
+
+        public int CountryCode { get; set; }
+
+        public int MobileNumber { get; set; }
+
+        public string AuthyCode { get; set; }
     }
 }

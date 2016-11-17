@@ -10,6 +10,7 @@ export class Login {
     password: string;
     validationHelper: ValidationHelper;
     http: HttpClient;
+    message: string;
 
     constructor() {
         this.username = "";
@@ -46,9 +47,20 @@ export class Login {
             }
         ).then(response => {
             console.log('resp rx');
+            if (response.ok) {
                 response.json()
+            }
+            else {
+                this.message = "Invalid Credentials";
+            }
+        })        
+            .then(data => {
+                console.log(data)
+                this.message = "Login Succesful";
             })
-            .then(data => console.log(data))
-            .catch(exception => { console.log (exception)});
+            .catch(exception => {
+                console.log(exception)
+                this.message = "Error with the login process";
+            });
     }
 }

@@ -7,9 +7,11 @@ export class Register {
     username: string;
     password: string;
     confirmPassword: string;
+    countryCode: string;
     mobileNumber: string;
     validationHelper: ValidationHelper;
     http: HttpClient;
+    message: string;
 
     constructor() {
         this.username = "";
@@ -66,13 +68,25 @@ export class Register {
                     body: json({
                         userName: this.username,
                         passwordHash: pwdHash,
-                        mobileNumber: this.mobileNumber
+                        mobileNumber: this.mobileNumber,
+                        countryCode: this.countryCode
                     })
                 }
-            ).then(response => response.json())
-                .then(data => {
-                    this.validationHelper.validationMessage = "User created";
-                });
+            ).then(response => {
+                console.log("response recieved");
+                if (response.ok) {
+                    response.json();
+                }
+                else {
+                    this.message = "An error occured during registration";
+                }                
+            })
+            .then(data => {
+                this.message = "User registered succesfully";
+            })
+            .catch(e => {
+                this.message = "An error occured during registration";
+            });
         }       
     }
 }
