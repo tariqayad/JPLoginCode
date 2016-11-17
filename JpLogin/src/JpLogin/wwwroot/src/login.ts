@@ -44,7 +44,11 @@ export class Login {
                     passwordHash: pwdHash
                 })
             }
-        ).then(response => response.json())
-            .then(data => console.log(data));
+        ).then(response => {
+            console.log('resp rx');
+                response.json()
+            })
+            .then(data => console.log(data))
+            .catch(exception => { console.log (exception)});
     }
 }

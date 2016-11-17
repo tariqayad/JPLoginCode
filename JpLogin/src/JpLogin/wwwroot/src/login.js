@@ -11,7 +11,14 @@ var Login = (function () {
         this.validationHelper = new validationhelper_1.ValidationHelper();
         this.http = new aurelia_fetch_client_1.HttpClient();
         this.http.configure(function (config) {
-            config.withBaseUrl(SettingsHelper_1.SettingsHelper.webUrl);
+            config.withBaseUrl(SettingsHelper_1.SettingsHelper.webUrl)
+                .withDefaults({
+                credentials: 'same-origin',
+                headers: {
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'Fetch'
+                }
+            });
         });
     }
     Login.prototype.doLogin = function () {
@@ -19,15 +26,18 @@ var Login = (function () {
         // Hash the password
         var pwdHash;
         pwdHash = js_sha256_1.default(this.password);
-        this.http.fetch('', {
+        this.http.fetch('Verify', {
             method: 'post',
             body: aurelia_fetch_client_1.json({
                 userName: this.username,
                 passwordHash: pwdHash
             })
         }).then(function (response) {
-            console.log("resp recvd");
-        });
+            console.log('resp rx');
+            response.json();
+        })
+            .then(function (data) { return console.log(data); })
+            .catch(function (exception) { console.log(exception); });
     };
     return Login;
 }());
