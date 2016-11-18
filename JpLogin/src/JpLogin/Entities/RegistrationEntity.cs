@@ -24,7 +24,9 @@ namespace JpLogin.Entities
             return new RegistrationEntity(model.UserName)
             {
                 PasswordHash = model.PasswordHash,
-                MobileNumber = model.MobileNumber
+                MobileNumber = model.MobileNumber,
+                CountryCode = model.CountryCode,
+                AuthyCode = model.AuthyCode
             };
         }
 
@@ -46,14 +48,24 @@ namespace JpLogin.Entities
         /// </value>
         public string UserName { get; set; }
         public string PasswordHash { get; set; }
+
+        public int CountryCode { get; set; }
+
         /// <summary>
         /// Gets or sets the mobile number.
         /// </summary>
         /// <value>
         /// The mobile number.
         /// </value>
-        public string MobileNumber { get; set; }
+        public int MobileNumber { get; set; }
 
+        /// <summary>
+        /// Gets or sets the authy code.
+        /// </summary>
+        /// <value>
+        /// The authy code.
+        /// </value>
+        public string AuthyCode { get; set; }
 
 
         public Registration ToModel()
@@ -62,7 +74,9 @@ namespace JpLogin.Entities
             {
                 UserName = this.UserName,
                 PasswordHash = this.PasswordHash,
-                MobileNumber = this.MobileNumber
+                MobileNumber = this.MobileNumber,
+                CountryCode = this.CountryCode,
+                AuthyCode = this.AuthyCode
             };
         }
     }

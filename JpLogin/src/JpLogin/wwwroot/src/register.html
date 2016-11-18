@@ -4,13 +4,14 @@
     <require from="src/converters/validate-form.ts"></require>
     <require from="src/converters/validate-confirm-password.ts"></require>
     <h1>Register</h1>
-
+    <p>${message}</p>
     <div class="row">
         <div class="col-md-4">
             <div id="container" class="form-group">
                 <label>Username</label><input class="form-control" class.bind="validationHelper | validateUserName:username" type="text" value.bind="username" placeholder="Enter your username" blur.trigger="validateUserName()" />
                 <label>Password</label><input class="form-control" class.bind="validationHelper | validatePassword:password" type="password" value.bind="password" placeholder="Enter your password" />
                 <label>Confirm your Password</label><input class="form-control" class.bind="confirmPassword | confirmPassword:password" type="password" value.bind="confirmPassword" placeholder="Confirm your password" />
+                <label>Country Code</label><input class="form-control" type="text" value.bind="countryCode" placeholder="e.g 94" />
                 <label>Mobile Number</label><input class="form-control" type="text" value.bind="mobileNumber" placeholder="Enter your mobile number" />
             </div>
             <input type="button" value="Register" click.delegate="doRegister()" disabled.bind="validationHelper | validateForm:username:password" />

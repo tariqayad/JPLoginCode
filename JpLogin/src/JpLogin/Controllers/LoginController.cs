@@ -29,9 +29,18 @@ namespace JpLogin.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]Registration value)
+        public IActionResult Post([FromBody]Registration value)
         {
-            this.registrationService.RegisterUser(value);
+            try
+            {
+                this.registrationService.RegisterUser(value);
+                 return Ok("User registered");
+            }
+            catch
+            {
+                return BadRequest("Error registering User");
+            }
+            
         }
 
         [HttpPost]

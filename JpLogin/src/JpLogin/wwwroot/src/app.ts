@@ -20,8 +20,9 @@ export class App {
         config.title = "JPLogin";
         config.map(
             [
-                { route: ['', 'home'], name: 'home', moduleId: 'src/Login', title: "Login" },
+                { route: ['', 'login'], name: 'login', moduleId: 'src/Login', title: "Login" },
                 { route: '/register', name: 'register', moduleId: 'src/Register', title: "Register" }
+                { route: '/home', name: 'home', moduleId: 'src/Home', title: "home" }
             ]
         );
     }
