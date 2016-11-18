@@ -1,6 +1,9 @@
 ﻿
 /* Global Styles */
 
+body{
+    padding-top: 65px;
+}
 
 .error{
     color:red;
